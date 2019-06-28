@@ -60,6 +60,11 @@ public class User extends Auditable
     @JsonIgnoreProperties("user")
     private List<UserRoles> userRoles = new ArrayList<>();
 
+    // this is for transactions
+    @Column(nullable = false)
+    private String transaction;
+
+
     public User()
     {
     }
