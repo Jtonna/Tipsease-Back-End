@@ -51,9 +51,6 @@ public class User extends Auditable
     @ApiModelProperty(notes = "this value is auto set for all new users but can be updated by the user")
     private String profilepicture = "https://twistedsifter.files.wordpress.com/2012/09/trippy-profile-pic-portrait-head-on-and-from-side-angle.jpg";
 
-    @Column(nullable = false)
-    private double bank = 1000;
-
     // this is for user roles
     @ApiModelProperty(notes = "The database generated product ID", hidden = isHidden)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -61,7 +58,7 @@ public class User extends Auditable
     private List<UserRoles> userRoles = new ArrayList<>();
 
     // this is for transactions
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String transaction;
 
 
@@ -90,14 +87,6 @@ public class User extends Auditable
     public void setUserid(long userid)
     {
         this.userid = userid;
-    }
-
-    public double getBank() {
-        return bank;
-    }
-
-    public void setBank(double bank) {
-        this.bank = bank;
     }
 
     public String getProfilepicture() {
