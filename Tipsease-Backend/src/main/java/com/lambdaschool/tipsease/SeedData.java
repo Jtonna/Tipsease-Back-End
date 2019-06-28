@@ -3,6 +3,7 @@ package com.lambdaschool.tipsease;
 import com.lambdaschool.tipsease.models.Role;
 import com.lambdaschool.tipsease.models.User;
 import com.lambdaschool.tipsease.models.UserRoles;
+import com.lambdaschool.tipsease.services.EmployeeService;
 import com.lambdaschool.tipsease.services.RoleService;
 import com.lambdaschool.tipsease.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class SeedData implements CommandLineRunner
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    EmployeeService employeeService;
 
 
     @Override
