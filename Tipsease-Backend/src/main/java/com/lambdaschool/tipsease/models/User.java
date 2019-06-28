@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 // User is considered the parent entity
 
@@ -39,10 +40,6 @@ public class User extends Auditable
     // @Jtonna
     // @Alex
 
-    @Column(nullable = true)
-    @ApiModelProperty(notes = "this value is auto set for all new users but can be updated by the user")
-    private String profilepicture = "https://twistedsifter.files.wordpress.com/2012/09/trippy-profile-pic-portrait-head-on-and-from-side-angle.jpg";
-
     @Column(nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ApiModelProperty(notes = "this is the password users will use to sign in")
@@ -50,6 +47,14 @@ public class User extends Auditable
     // password123
     // superSecurePassword
 
+    @Column(nullable = true)
+    @ApiModelProperty(notes = "this value is auto set for all new users but can be updated by the user")
+    private String profilepicture = "https://twistedsifter.files.wordpress.com/2012/09/trippy-profile-pic-portrait-head-on-and-from-side-angle.jpg";
+
+    @Column(nullable = false)
+    private double bank = 1000;
+
+    // this is for user roles
     @ApiModelProperty(notes = "The database generated product ID", hidden = isHidden)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
@@ -80,6 +85,14 @@ public class User extends Auditable
     public void setUserid(long userid)
     {
         this.userid = userid;
+    }
+
+    public double getBank() {
+        return bank;
+    }
+
+    public void setBank(double bank) {
+        this.bank = bank;
     }
 
     public String getProfilepicture() {

@@ -50,7 +50,7 @@ public class SeedData implements CommandLineRunner
         User u3 = new User("Alex Shillingford", "Alex", "alexspassword","", users);
         userService.save(u3);
 
-        User u4 = new User("Joseph Garcia", "Joseph", "josephspassword", "",users);
+        User u4 = new User("Joseph Garcia", "Joseph", "josephspassword", "", users);
         userService.save(u4);
 
         User u5 = new User("Marlon Raskin", "Marlon", "marlonspassword", "", users);
@@ -58,5 +58,13 @@ public class SeedData implements CommandLineRunner
 
         User u6 = new User("Victor Goico", "Victor", "vistorspassword", "", users);
         userService.save(u6);
+
+        // these users will be employees
+        User u7 = new User("Johhny Rocket", "Johnny", "johnnyspassword", "", users);
+        userService.save(u7);
+
+        // restaurant stuff
+
+
     }
 }
