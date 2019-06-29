@@ -13,7 +13,7 @@ public class Employee extends Auditable{
 
     @Id
     @ApiModelProperty(notes = "The database generated employee ID", hidden = isHidden)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     private long empid;
 
     @ApiModelProperty(notes = "Whole name of an employee")

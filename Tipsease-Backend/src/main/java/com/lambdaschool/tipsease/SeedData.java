@@ -61,7 +61,7 @@ public class SeedData implements CommandLineRunner
         User u5 = new User("Marlon Raskin", "Marlon", "marlonspassword", "", users);
         userService.save(u5);
 
-        User u6 = new User("Victor Goico", "Victor", "vistorspassword", "", users);
+        User u6 = new User("Victor Goico", "Victor", "victorspassword", "", users);
         userService.save(u6);
 
         // these users will be employees
