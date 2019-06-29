@@ -1,6 +1,7 @@
 package com.lambdaschool.tipsease.models;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -13,7 +14,8 @@ public class Employee extends Auditable{
 
     @Id
     @ApiModelProperty(notes = "The database generated employee ID", hidden = isHidden)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "nativeemp")
+    @GenericGenerator(name = "nativeemp", strategy = "native")
     private long empid;
 
     @ApiModelProperty(notes = "Whole name of an employee")
