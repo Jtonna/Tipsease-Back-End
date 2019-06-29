@@ -1,5 +1,6 @@
 package com.lambdaschool.tipsease;
 
+import com.lambdaschool.tipsease.models.Employee;
 import com.lambdaschool.tipsease.models.Role;
 import com.lambdaschool.tipsease.models.User;
 import com.lambdaschool.tipsease.models.UserRoles;
@@ -67,8 +68,15 @@ public class SeedData implements CommandLineRunner
         User u7 = new User("Johhny Rocket", "Johnny", "johnnyspassword", "", users);
         userService.save(u7);
 
-        // restaurant stuff
+        // employee stuff
 
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        Employee e1 = new Employee("James F", "Quesadilla Gorilla", "https://componentcoffeelab.com/wp-content/uploads/2017/10/quesadilla-gorilla-youd-be-surprised-at-how-they-pronounce-it-300x300.png", "https://www.gannett-cdn.com/-mm-/0db0ac80146d892b7c004d14ca3b65331e5e208b/c=0-103-2000-1228/local/-/media/Visalia/2015/04/07/B9316879780Z.1_20150407200535_000_G2DAEELDN.1-0.jpg?width=3200&height=1680&fit=crop");
+        employeeService.save(e1);
+
+        Employee e2 = new Employee("Frank D", "Quesadilla Gorilla", "https://scontent-amt2-1.cdninstagram.com/vp/96eee3ca4dd27aa288434dd0df3fb2c1/5D340C0C/t51.2885-15/e35/50846629_645805099169568_5923745083951098418_n.jpg?_nc_ht=scontent-amt2-1.cdninstagram.com&se=7&ig_cache_key=MTk2ODYwOTA5Mjg4NjY0NjQ3MQ%3D%3D.2", "https://www.gannett-cdn.com/-mm-/0db0ac80146d892b7c004d14ca3b65331e5e208b/c=0-103-2000-1228/local/-/media/Visalia/2015/04/07/B9316879780Z.1_20150407200535_000_G2DAEELDN.1-0.jpg?width=3200&height=1680&fit=crop");
+        employeeService.save(e2);
 
     }
 }
