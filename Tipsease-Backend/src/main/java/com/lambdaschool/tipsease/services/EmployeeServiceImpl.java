@@ -1,5 +1,6 @@
 package com.lambdaschool.tipsease.services;
 
+import com.lambdaschool.tipsease.exceptions.ResourceNotFoundException;
 import com.lambdaschool.tipsease.models.Employee;
 import com.lambdaschool.tipsease.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,16 @@ public class EmployeeServiceImpl implements EmployeeService{
         newEmployee.setEmpheader(employee.getEmpheader());
 
         return emprepo.save(newEmployee);
+    }
+
+    @Override
+    public void delete(Long id) {
+        if (emprepo.findById(id).isPresent())
+        {
+            emprepo.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException(Long.toString(id));
+        }
     }
 
 }

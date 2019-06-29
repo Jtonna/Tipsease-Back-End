@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -30,6 +28,16 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     // used for deleting an employee
+    // localhost:2019/employees/delete/employee/2
+    @ApiOperation(value = "this is used to delete an employee by their id")
+    @DeleteMapping(value = "/delete/employee/{id}")
+    public ResponseEntity<?> deleteUserById(HttpServletRequest request, @PathVariable long id)
+    {
+        logger.trace(request.getRequestURI() + " accessed, an employee was deleted");
+
+        employeeService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     // used for getting transactions between user's and employee's
 
